@@ -2,6 +2,8 @@ import userModel from '../database/conn.js';
 // import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import otpgenerator from 'otp-generator';
+import dotenv from 'dotenv';
+dotenv.config();
 export async function verifyUser(req, res, next) {
     try {
         const { username } = req.method == "GET" ? req.query : req.body;
@@ -54,7 +56,7 @@ export async function login(req, res) {
                     return res.status(400).json({ error: "Incorrect password" })
                 }
                 try{
-                const token = jwt.sign({ userId: user._id, username: user.username }, ENV.JWT_SECRET, { expiresIn: "24h" });
+                const token = jwt.sign({ userId: user._id, username: user.username }, process.env.JWT_SECRET, { expiresIn: "24h" });
                 
                 return res.status(200).send({
                     msg: "Login SuccessFully...",
