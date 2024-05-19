@@ -55,9 +55,8 @@ export const registerMail=async (req,res)=>{
         }
     }
     let emailBody=mailgenerator.generate(email);
-    
     let message ={
-        from:process.env.Email,
+        from:process.env.EMAIL,
         to:userEmail,
         subject:subject || 'SignUp Successfully',
         html:emailBody
