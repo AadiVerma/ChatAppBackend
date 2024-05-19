@@ -6,8 +6,8 @@ dotenv.config()
 let nodeConfig={
     service: "gmail",
     auth: {
-        user: process.env.email,
-        pass: process.env.password,
+        user: process.env.EMAIL,
+        pass: process.env.PASSWORD,
     },
 }
 let transporter=nodemailer.createTransport(nodeConfig);
