@@ -46,6 +46,7 @@ export const Contact=async(req,res)=>{
 }
 export const registerMail=async (req,res)=>{
     const {username,userEmail,text,subject}=req.body;
+    console.log(req.body);
     let email={
         body:{
             name:username,
