@@ -32,7 +32,7 @@ export const Contact=async(req,res)=>{
     let emailBody=mailgenerator.generate(email);
     let message ={
         from:userEmail,
-        to:process.env.Email,
+        to:process.env.EMAIL,
         subject:subject || 'SignUp Successfully',
         html:emailBody
     }
